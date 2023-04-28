@@ -8,14 +8,26 @@
     <body>
         <div class="'wrapper">
             <div class="Search">
-
+                <h3>Search</h3>
+                <button type="button">search</button>
+                <form
+                action = 'http://openlibrary.org/search.json?q='
+                class = 'box main_form'>
+                <div> <label for = 'q'></label>
+                    <input type="text" id = 'q' name = 'q'></div>
+        
+                </form>
+        
             </div>
+            
             <div class ="Data">
 
+            </div>
             </div>
             <div class ='book cover carousel'>
 
             </div>
         </div>    
+        <script src="script.js"></script>
     </body>
 </html>

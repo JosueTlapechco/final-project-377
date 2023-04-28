@@ -1,0 +1,1 @@
+let slidePosition = 0
