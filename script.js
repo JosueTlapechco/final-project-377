@@ -12,6 +12,10 @@ async function fetchWorkDetails(workID) {
 
 async function fetchCover(coverID){
     const cover = await fetch(`https://covers.openlibrary.org/b/id/${coverID}-L.jpg`)
+    cover.then(
+        (result) => console.log(result),
+        (error) => console.error(error)
+      );
     return cover;
 }
 
@@ -23,15 +27,15 @@ function injectHTML(list) {
   }
 
 function putImage(imageList){
-    for(i = 1; i <= imageList.length - 1; i++){
-        document.getElementByID('#carousel_item').src = imageList[i];
+    for(i = 0; i <= imageList.length - 1; i++){
+        document.querySelector('carousel_item').src = JSON.stringify(imageList[i]);
     }
 }
 
 function createimageList(coverID){
     let newList = [];
-    for(i = 1; i <= coverID.length - 1; i++){
-        newList += fetchCover(coverID[i]);
+    for(i = 0; i <= coverID.length - 1; i++){
+        newList.push(fetchCover(coverID[i]));
     }
     return newList;
 }
@@ -63,7 +67,8 @@ async function mainEvent(buttonEvent) {
     console.log('Authors:', authors);
     console.log(fetchCover(covers[0]), 'fired cover');
     injectHTML(description)
-    console.log(createimageList(covers), 'created list');
     imageList = createimageList(covers);
+    Promise.resolve(imageList);
+    console.log(imageList, 'created list');
     putImage(imageList);
 }
