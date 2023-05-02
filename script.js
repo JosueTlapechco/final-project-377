@@ -12,11 +12,9 @@ async function fetchWorkDetails(workID) {
 
 async function fetchCover(coverID){
     const cover = await fetch(`https://covers.openlibrary.org/b/id/${coverID}-L.jpg`)
-    cover.then(
-        (result) => console.log(result),
-        (error) => console.error(error)
-      );
-    return cover;
+    console.log(cover.url);
+
+    return cover.url;
 }
 
 function injectHTML(list) {
@@ -37,6 +35,7 @@ function createimageList(coverID){
     for(i = 0; i <= coverID.length - 1; i++){
         newList.push(fetchCover(coverID[i]));
     }
+   
     return newList;
 }
 async function mainEvent(buttonEvent) {
@@ -51,8 +50,6 @@ async function mainEvent(buttonEvent) {
     const formProps = Object.fromEntries(formData);
     currentList = await fetchSearchResults(formProps['q']);
     workID = currentList['docs'][0]['key'];
-    console.table(currentList);
-    console.log('workid', workID);
 
     const workDetailsJson = await fetchWorkDetails(workID);
     console.log('Work Details:', workDetailsJson);
@@ -62,13 +59,11 @@ async function mainEvent(buttonEvent) {
     const authors = workDetailsJson.authors ? fetchWorkDetails(workDetailsJson.authors[0]['author']['key']) : [];
 
     console.log(workDetailsJson.authors[0]['author']['key'], typeof JSON.stringify(workDetailsJson.authors[0]['author']))
-    console.log('Description:', description);
     console.log('Covers:', covers);
     console.log('Authors:', authors);
-    console.log(fetchCover(covers[0]), 'fired cover');
+
     injectHTML(description)
     imageList = createimageList(covers);
-    Promise.resolve(imageList);
     console.log(imageList, 'created list');
     putImage(imageList);
 }
