@@ -1,39 +1,26 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-*" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Josue Tlapechco Final</title>
-    </head>
-    <body>
-        <div class="'wrapper">
-            <div class="Search">
-                <h3>Search</h3>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Search</title>
+</head>
+<body>
+    <form class="main_form">
+        <label for="search">Search for a book:</label>
+        <input type="text" id="search" name="q" required>
+        <button type="button" onclick="mainEvent(event)">Submit</button>
+    </form>
 
-               
-                
-                <form
-                action = 'http://openlibrary.org/search.json?q='
-                class = 'box main_form book'>
-                    <div> 
-                        <label for = 'q'></label>
-                        <input type="text" id = 'q' name = 'q'>
-                    </div>
-                    <button type="submit" class = 'main_form'>search</button>
-                </form>
-                
-            </div>
-            
-            <div class ="Data">
-                <ol class="box" id="restaurant_list">
-                    book
-                  </ol>
-            </div>
-            </div>
-            <div class ='book cover carousel'>
+    <div id = 'description'>
 
-            </div>
-        </div>    
-        <script src="script.js"></script>
-    </body>
+    </div>
+
+    <div class = 'slides'>
+        <div class="carousel_item visible"><img src="" alt = 'book cover'></div>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>
+
+
