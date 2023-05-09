@@ -7,23 +7,49 @@
      <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form class="main_form">
-        <label for="search">Search for a book:</label>
-        <input type="text" id="search" name="q" required>
-        <button id = 'search' type="submit">Submit</button>
-    </form>
-
-    <div id = 'description'>
-
-    </div>
-
-    
-    <div id = 'carousel'>
-        <div class = 'prev'><button class = 'prev'>previous</button> </div>
-            <div id = 'slides'>
-
+    <div class = 'wrapper'>
+        <div class = 'container'>
+            <header class = 'header'><h1>Book Searcher</h1></header>
+            <div class = 'box left_section'>
+                <div class = 'form'>
+                    <form class="main_form">
+                        <label for="search"><h1>Search for a book:</h1></label>
+                        <input type="text" id="search" name="q" required>
+                        <button id = 'search' type="submit">Submit</button>
+                    </form>
+                </div>
+                <h3>Title:</h3>
+                <div id = 'title'>
+                    
+                </div>
+                <h3>Description:</h3>
+                <div id = 'description'>
+                    
+                </div>
+                <h3>Author name: </h3>
+                <div id = 'author'>
+                    
+                </div>
+                <h3>Publishing Date:</h3>
+                <div id = 'publish'>
+                    
+                </div>
+                <h3>Tags:</h3>
+                <div id = 'tags'>
+                    
+                </div>
             </div>
-        <div class = 'next'><button class = 'next'>next</button> </div>
+            <div class="right_section box">
+                <div id = 'carousel'>
+                    <h3>Book cover: </h3>
+                    <div class = 'prev'><button class = 'prev'>previous</button> </div>
+                        <div id = 'slides' class = 'number'>
+                            <div class="lds-ellipsis" id="data_load_animation"><div></div><div></div><div></div><div></div></div>
+                        </div>
+                    <div class = 'next'><button class = 'next'>next</button> </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

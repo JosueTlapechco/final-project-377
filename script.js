@@ -18,9 +18,9 @@ async function fetchCover(coverID) {
   return cover.url;
 }
 
-function injectHTML(list) {
+function injectHTML(list, id) {
   console.log("fired injectHTML");
-  const target = document.querySelector("#description");
+  const target = document.querySelector(`#${id}`);
   target.innerHTML = "";
   target.innerHTML += list;
 }
@@ -100,11 +100,14 @@ function slides() {
   });
 }
 async function mainEvent() {
+  const loadAnimation = document.querySelector("#data_load_animation");
+  loadAnimation.style.display = "none";
   document
     .querySelector(".main_form")
     .addEventListener("submit", async function (event) {
       event.preventDefault();
-
+      loadAnimation.style.display = 'inline-block';
+      console.log(loadAnimation.style.displa);
       let currentList = [];
       let workID = "";
 
@@ -131,9 +134,15 @@ async function mainEvent() {
         typeof JSON.stringify(workDetailsJson.authors[0]["author"])
       );
       console.log("Covers:", covers);
-      console.log("Authors:", authors);
+      console.log("Authors:", authors["name"]);
 
-      injectHTML(description);
+      injectHTML(workDetailsJson.title, "title");
+      injectHTML(description, "description");
+      injectHTML(authors["name"], "author");
+      injectHTML(workDetailsJson.first_publish_date, "publish");
+      injectHTML(workDetailsJson.subjects, "tags");
+
+
       imageList = await createimageList(covers);
       putImage(imageList);
       console.log(document.querySelector("#carousel"));
