@@ -29,13 +29,21 @@ function putImage(imageList) {
   let html = [];
   for (i = 0; i <= imageList.length - 1; i++) {
     // document.querySelector('#carousel_item').src = JSON.stringify(imageList[i]);
-    html.push(
-      ` <div class="carousel_item "><img src=${JSON.stringify(
-        imageList[i]
-      )}></div>`
-    );
+    if (i == 0) {
+      html.push(
+        ` <div class="carousel_item visible"><img src=${JSON.stringify(
+          imageList[i]
+        )}></div>`
+      );
+    } else {
+      html.push(
+        ` <div class="carousel_item hidden"><img src=${JSON.stringify(
+          imageList[i]
+        )}></div>`
+      );
+    }
   }
-  document.querySelector("#slides").innerHTML = html.join(' ');
+  document.querySelector("#slides").innerHTML = html.join(" ");
 }
 
 async function createimageList(coverID) {
@@ -64,7 +72,6 @@ function slides() {
     slides[slidePosition].classList.add("visible");
   }
   function moveToNextSlide() {
-
     if (slidePosition === totalSlides - 1) {
       slidePosition = 0;
     } else {
@@ -74,7 +81,6 @@ function slides() {
   }
 
   function moveToPrevSlide() {
-   
     if (slidePosition === 0) {
       slidePosition = totalSlides - 1;
     } else {
@@ -83,20 +89,15 @@ function slides() {
     updateSlidePosition();
   }
 
-  document
-    .querySelector(".next")
-    .addEventListener("click", () => {
-      
-      console.log("clicked next"); 
-      moveToNextSlide(); 
-    });
+  document.querySelector(".next").addEventListener("click", () => {
+    console.log("clicked next");
+    moveToNextSlide();
+  });
 
-  document
-    .querySelector(".prev") 
-    .addEventListener("click", () => {
-      console.log("clicked prev"); 
-      moveToPrevSlide(); 
-    });
+  document.querySelector(".prev").addEventListener("click", () => {
+    console.log("clicked prev");
+    moveToPrevSlide();
+  });
 }
 async function mainEvent() {
   document
