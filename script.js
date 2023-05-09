@@ -1,5 +1,5 @@
 async function fetchSearchResults(query) {
-  const results = await fetch(`http://openlibrary.org/search.json?q=${query}`);
+  const results = await fetch(`https://openlibrary.org/search.json?q=${query}`);
   const resultList = await results.json();
   return resultList;
 }
