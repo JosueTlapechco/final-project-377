@@ -7,7 +7,7 @@
 }
 
 html {
-  background-color: #ffffff;
+  background-color: #6b9080;
   font-size: 16px;
   min-width: 300px;
   overflow-x: hidden;
@@ -29,7 +29,7 @@ body {
   font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’, ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
   font-weight: 400;
   line-height: 1.5;
-  background-color: #83B5D1;
+  background-color: #6b9080;
 }
 
 
@@ -38,15 +38,15 @@ a {
   text-decoration: none;
 }
 
-h2, h3 {
-  color: #7698B3;
+h1, h2, h3 {
+  color: #f6fff8;
   margin:0;
   padding:0;
   padding-bottom:1.5rem;
 }
 
 form {
-  accent-color: #7698B3;
+  accent-color: #f6fff8;
 }
 
 /*
@@ -92,8 +92,8 @@ form {
   /* this will push other blocks out of the way */
 
   /* colors */
-  background-color: #673C4F;
-  color: #83B5D1;
+  background-color: #A4C3B2;
+  color: #EAF4F4;
 
   /* shapes */
   border-radius: 6px;
@@ -117,8 +117,8 @@ form {
 */
 
 .box {
-  background-color: #726E97;
-  border: 2px dashed;
+  background-color: #A4C3B2;
+ 
   border-radius: 4px;
 
   width: fit-content;
@@ -128,14 +128,14 @@ form {
 }
 
 .left_section {
-  background-color: #7F557D;
+  background-color: #A4C3B2;
   flex: 0 1 auto;
   margin: 1rem;
   padding: 1.5rem;
 }
 
 .right_section{
-  background-color: #7F557D;
+  background-color: #A4C3B2;
   flex: 1 2 auto;
   margin: 1rem;
   align-items: center;
@@ -251,7 +251,7 @@ div.carousel {
 .prev,
 .next {
   border: none;
-  margin: 20px;
+  margin: 2px;
   text-align: center;
   
   font-weight: bold;
@@ -362,7 +362,7 @@ form label {
     /* Rules in here will only apply when a screen is the correct size */
     /* check it out by using your developer tools to shrink your screen-size */
     html{
-      background-color: #673C4F;
+      background-color: #6b9080;
     }
     .container {
       flex-direction: column;
